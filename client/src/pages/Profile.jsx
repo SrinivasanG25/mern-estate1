@@ -20,6 +20,7 @@ import {
   signOutUserSuccess
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom';
 export default function Profile() {
   const fileRef = useRef(null); 
   const { currentUser, loading, error } = useSelector((state) => state.user);
@@ -184,6 +185,8 @@ export default function Profile() {
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
+        <Link  className='bg-green-800 text-white text-center p-3 rounded-lg uppercase' to={'/create-listing'}>Create listing
+        </Link>
       </form>
       <div className='flex justify-between mt-5'>
         <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete account</span>
