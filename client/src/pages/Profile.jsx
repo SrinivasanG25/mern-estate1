@@ -215,7 +215,7 @@ export default function Profile() {
           Create Listing
         </Link>
       </form>
-      <div className='flex justify-between mt-5'>
+      <div className='flex justify-between mt-5 border'>
         <span
           onClick={handleDeleteUser}
           className='text-red-700 cursor-pointer'
@@ -238,14 +238,14 @@ export default function Profile() {
       </p>
 
       {userListings && userListings.length > 0 && (
-        <div className='flex flex-col gap-4'>
+        <div className=' border flex flex-col gap-4'>
           <h1 className='text-center mt-7 text-2xl font-semibold'>
             Your Listings
           </h1>
           {userListings.map((listing) => (
             <div
               key={listing._id}
-              className='border rounded-lg p-3 flex justify-between items-center gap-4'
+              className='border border-red-500 rounded-lg p-3 flex justify-between items-center gap-4'
             >
               <Link to={`/listing/${listing._id}`}>
                 <img
