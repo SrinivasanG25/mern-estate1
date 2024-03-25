@@ -151,7 +151,7 @@ export default function Profile() {
   };
   return (
     <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
+      <h1 className='text-4xl text-center font-extrabold my-10 text-gradient bg-clip-text text-indigo-800 tracking-wider'>Profile</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
           onChange={(e) => setFile(e.target.files[0])}
@@ -204,18 +204,18 @@ export default function Profile() {
         />
         <button
           disabled={loading}
-          className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
+          className='bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-400 hover:to-purple-400 text-white font-semibold py-2 px-4  border-purple-500 rounded-md shadow-md hover:shadow-lg transition duration-300 ease-in-out uppercase'
         >
           {loading ? 'Loading...' : 'Update'}
         </button>
         <Link
-          className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+          className='bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-cyan-400 hover:to-indigo-400 text-white font-semibold py-2 px-4  text-center border-indigo-500 rounded-md shadow-md hover:shadow-lg transition duration-300 ease-in-out uppercase'
           to={'/create-listing'}
         >
           Create Listing
         </Link>
       </form>
-      <div className='flex justify-between mt-5 border'>
+      <div className='flex justify-between mt-5 '>
         <span
           onClick={handleDeleteUser}
           className='text-red-700 cursor-pointer'
@@ -238,7 +238,7 @@ export default function Profile() {
       </p>
 
       {userListings && userListings.length > 0 && (
-        <div className=' border flex flex-col gap-4'>
+        <div className=' flex flex-col gap-4'>
           <h1 className='text-center mt-7 text-2xl font-semibold'>
             Your Listings
           </h1>

@@ -56,10 +56,19 @@ export const getUserListings = async (req, res, next) => {
 
   export const getUser = async (req, res, next) => {
     try {
+      const timeoutPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject('Timeout occurred!');
+        }, 5000); // 5000ms timeout
+      });
   
-      const user = await User.findById(req.params.id);
+      const userPromise = User.findById(req.params.id);
   
-      if (!user) return next(errorHandler(404, 'User not found!'));
+      const user = await Promise.race([userPromise, timeoutPromise]);
+  
+      if (!user) {
+        return next(errorHandler(404, 'User not found!'));
+      }
   
       const { password: pass, ...rest } = user._doc;
   
@@ -68,3 +77,4 @@ export const getUserListings = async (req, res, next) => {
       next(error);
     }
   };
+  

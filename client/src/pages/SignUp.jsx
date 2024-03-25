@@ -47,12 +47,12 @@ export default function SignUp() {
   }
   return (
     <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl text-center font-bold my-10'>Sign Up</h1>
+      <h1 className='text-4xl text-center font-extrabold my-10 text-gradient bg-clip-text text-indigo-800 tracking-wider'>Sign Up</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input type='text' placeholder='username' className='border p-3 rounded-lg' id='username' onChange={handleChange}/>
         <input type='email' placeholder='email' className='border p-3 rounded-lg' id='email' onChange={handleChange}/>
         <input type='password' placeholder='password' className='border p-3 rounded-lg' id='password' onChange={handleChange}/>
-        <button  disabled={loading} className='bg-red-400 text-white rounded-lg p-3 uppercase hover:opacity-85 disabled:opacity-'>{loading? 'loading...':'Sign Up'}</button>
+        <button  disabled={loading} className='bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-400 hover:to-purple-400 text-white font-semibold py-2 px-4  border-purple-500 rounded-md shadow-md hover:shadow-lg transition duration-300 ease-in-out uppercase'>{loading? 'loading...':'Sign Up'}</button>
         <OAuth/>
       </form>
       <div className='flex gap-2 mt-5'>
